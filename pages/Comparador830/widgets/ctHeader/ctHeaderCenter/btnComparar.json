@@ -1,0 +1,57 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 23,
+  "boxShadow": "none",
+  "buttonColor": "#3b82f6",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{ !fpSemanaAnterior.files?.length || !fpSemanaActual.files?.length }}\n",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "rcs4up7xha",
+  "leftColumn": 24,
+  "minWidth": 120,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 22,
+  "mobileRightColumn": 38,
+  "mobileTopRow": 10,
+  "needsErrorInfo": false,
+  "onClick": "{{storeValue('job_status', '\"Enviando archivos a n8n...\"');\napiComparar830.run();\nstoreValue('job_status', 'Listo. Revisa el Resultado abajo.');\nJSObject1.setHtmlResult();}}",
+  "originalBottomRow": 23,
+  "originalTopRow": 19,
+  "parentColumnSpace": 19.62109375,
+  "parentId": "7tub2tupex",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 40,
+  "text": "Comparar",
+  "topRow": 19,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "m0fclgwauz",
+  "widgetName": "btnComparar"
+}

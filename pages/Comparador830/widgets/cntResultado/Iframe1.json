@@ -1,0 +1,45 @@
+{
+  "animateLoading": true,
+  "borderOpacity": 100,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 80,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "srcDoc"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "m8z252pax9",
+  "leftColumn": 0,
+  "mobileBottomRow": 33,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "originalBottomRow": 82,
+  "originalTopRow": 6,
+  "parentColumnSpace": 19.62109375,
+  "parentId": "9serbe7qkq",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "source": "",
+  "srcDoc": "{{ apiComparar830.isLoading\n  ? \"<div style='font-family:Inter;padding:12px'>AI Analizyng...</div>\"\n  : (apiComparar830.data?.[0]?.result_html || \"<div style='font-family:Inter;padding:12px'>Sin resultado</div>\")\n}}\n\n\n",
+  "topRow": 4,
+  "type": "IFRAME_WIDGET",
+  "version": 1,
+  "widgetId": "aehvwudefe",
+  "widgetName": "Iframe1"
+}

@@ -1,0 +1,52 @@
+{
+  "allowedFileTypes": "[\n  \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\"\n]\n",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 8,
+  "boxShadow": "none",
+  "buttonColor": "#d8b4fe",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "allowedFileTypes"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "dynamicTyping": true,
+  "fileDataType": "Binary",
+  "files": [],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "hf100p2y8c",
+  "label": "Semana anterior (.xlsx)",
+  "leftColumn": 8,
+  "maxFileSize": 5,
+  "maxNumFiles": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 11,
+  "mobileLeftColumn": 5,
+  "mobileRightColumn": 21,
+  "mobileTopRow": 7,
+  "needsErrorInfo": false,
+  "originalBottomRow": 14,
+  "originalTopRow": 10,
+  "parentColumnSpace": 19.62109375,
+  "parentId": "xbmeyatziv",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 56,
+  "selectedFiles": [],
+  "topRow": 4,
+  "type": "FILE_PICKER_WIDGET_V2",
+  "version": 1,
+  "widgetId": "ecasgehbcj",
+  "widgetName": "fpSemanaAnterior"
+}

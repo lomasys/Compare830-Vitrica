@@ -1,0 +1,52 @@
+{
+  "allowedFileTypes": "[\n  \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\"\n]\n",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 8,
+  "boxShadow": "none",
+  "buttonColor": "#86efac",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "allowedFileTypes"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "dynamicTyping": true,
+  "fileDataType": "Binary",
+  "files": [],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "hf100p2y8c",
+  "label": "Semana actual (.xlsx)",
+  "leftColumn": 12,
+  "maxFileSize": 5,
+  "maxNumFiles": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 12,
+  "mobileLeftColumn": 30,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 8,
+  "needsErrorInfo": false,
+  "originalBottomRow": 23,
+  "originalTopRow": 19,
+  "parentColumnSpace": 19.62109375,
+  "parentId": "v57ybgm875",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "hug",
+  "rightColumn": 58,
+  "selectedFiles": [],
+  "topRow": 4,
+  "type": "FILE_PICKER_WIDGET_V2",
+  "version": 1,
+  "widgetId": "2lvqtkpul9",
+  "widgetName": "fpSemanaActual"
+}
