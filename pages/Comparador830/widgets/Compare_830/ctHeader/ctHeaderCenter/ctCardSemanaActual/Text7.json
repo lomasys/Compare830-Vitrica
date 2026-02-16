@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 11,
+  "bottomRow": 13,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -14,42 +14,50 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "1rem",
+  "fontSize": "0.875rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "x2dz2kthxi",
-  "leftColumn": 21,
+  "key": "zhs04z5e36",
+  "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 11,
-  "mobileLeftColumn": 21,
-  "mobileRightColumn": 37,
-  "mobileTopRow": 7,
+  "mobileBottomRow": 16,
+  "mobileLeftColumn": 36,
+  "mobileRightColumn": 52,
+  "mobileTopRow": 12,
   "needsErrorInfo": false,
-  "originalBottomRow": 11,
-  "originalTopRow": 7,
+  "originalBottomRow": 13,
+  "originalTopRow": 8,
   "overflow": "NONE",
-  "parentColumnSpace": 3.05987548828125,
-  "parentId": "l0ultz3mka",
+  "parentColumnSpace": 10.41778564453125,
+  "parentId": "v57ybgm875",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 37,
+  "rightColumn": 61,
   "shouldTruncate": false,
-  "text": "{{ appsmith.store.comparacion?.diferencias_count || 0 }}\n",
-  "textAlign": "LEFT",
-  "textColor": "#231F20",
-  "topRow": 7,
+  "text": "{{ \nfpSemanaActual.files.length > 0 \n? \"📄 \" + fpSemanaActual.files[0].name \n: \"Ningún archivo seleccionado\"\n}}\n",
+  "textAlign": "CENTER",
+  "textColor": "{{ fpSemanaAnterior.files.length > 0 ? \"#16a34a\" : \"#6b7280\" }}\n",
+  "topRow": 8,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "cnjq20gv8h",
-  "widgetName": "Text8"
+  "widgetId": "nu3269biyu",
+  "widgetName": "Text7"
 }
