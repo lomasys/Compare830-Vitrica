@@ -1,0 +1,37 @@
+insert into file_compare_diffs (
+  run_id,
+  period_key,
+  year,
+  month,
+  iso_week,
+  year_week,
+  part_number,
+  change_type,
+  prev_value,
+  curr_value,
+  diff_value,
+  row_payload
+)
+select
+  {{ this.params.run_id }}::uuid,
+  {{ this.params.period_key || moment().format("YYYY-MM") }},
+  {{ this.params.year || moment().year() }},
+  {{ this.params.month || (moment().month() + 1) }},
+  {{ this.params.iso_week || moment().isoWeek() }},
+  {{ this.params.year_week || moment().format("GGGG-[W]WW") }},
+  d->>'numeroParte',
+  d->>'tipo',
+  nullif(d->>'valorAnterior','')::numeric,
+  nullif(d->>'valorActual','')::numeric,
+  nullif(d->>'diferencia','')::numeric,
+  d
+from jsonb_array_elements(
+  {{ JSON.stringify(this.params.diferencias || []) }}::jsonb
+) d
+where coalesce(d->>'numeroParte','') <> ''  -- opcional: evita rows sin parte
+returning id, run_id, part_number, change_type;
+
+
+
+
+

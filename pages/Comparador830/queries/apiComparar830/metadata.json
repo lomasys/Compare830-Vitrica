@@ -74,7 +74,7 @@
     ],
     "name": "apiComparar830",
     "pageId": "Comparador830",
-    "runBehaviour": "AUTOMATIC",
-    "userSetOnLoad": false
+    "runBehaviour": "MANUAL",
+    "userSetOnLoad": true
   }
 }

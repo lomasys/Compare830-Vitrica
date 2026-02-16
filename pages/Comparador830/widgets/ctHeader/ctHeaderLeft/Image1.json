@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 11,
+  "bottomRow": 16,
   "boxShadow": "none",
   "defaultImage": "https://www.vitrica.com/img/logos/logo-black.svg",
   "dynamicBindingPathList": [
@@ -18,7 +18,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "5hzvdcd8gq",
-  "leftColumn": 16,
+  "leftColumn": 18,
   "maxZoomLevel": 1,
   "mobileBottomRow": 12,
   "mobileLeftColumn": 0,
@@ -30,8 +30,8 @@
   "parentId": "gc4cjn05al",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
-  "rightColumn": 43,
-  "topRow": 0,
+  "rightColumn": 45,
+  "topRow": 5,
   "type": "IMAGE_WIDGET",
   "version": 1,
   "widgetId": "m92yqfwto5",

@@ -1,0 +1,52 @@
+INSERT INTO file_compare_runs (
+  created_by_email,
+  created_by_name,
+  tool_name,
+  compare_type,
+  period_key,
+  year,
+  month,
+  iso_week,
+  year_week,
+  prev_filename,
+  curr_filename,
+  has_differences,
+  differences_count,
+  total_prev,
+  total_curr,
+  total_variation,
+  raw_summary
+)
+VALUES (
+  {{ appsmith.user.email }},
+  {{ appsmith.user.name }},
+  'Comparador 830',
+  '830',
+
+  -- Periodo (cuando se corrió el comparativo)
+  {{ moment().format("YYYY-MM") }},
+  {{ moment().year() }},
+  {{ moment().month() + 1 }},
+  {{ moment().isoWeek() }},
+  {{ moment().format("GGGG-[W]WW") }},
+
+  -- nombres de archivo (si tu comp los trae)
+  {{ this.params.comp?.prev_filename || this.params.comp?.prevFilename || null }},
+  {{ this.params.comp?.curr_filename || this.params.comp?.currFilename || null }},
+
+  -- resumen de diferencias
+  {{ (Number(this.params.comp?.diferencias_count ?? this.params.comp?.diferenciasCount ?? 0)) > 0 }},
+  {{ Number(this.params.comp?.diferencias_count ?? this.params.comp?.diferenciasCount ?? 0) }},
+
+  -- totales (si tu comp los trae)
+  {{ Number(this.params.comp?.total_prev ?? this.params.comp?.total_anterior ?? this.params.comp?.totalAnterior ?? 0) }},
+  {{ Number(this.params.comp?.total_curr ?? this.params.comp?.total_actual ?? this.params.comp?.totalActual ?? 0) }},
+  {{ Number(this.params.comp?.total_variation ?? this.params.comp?.variacion_total ?? this.params.comp?.variacionTotal ?? 0) }},
+
+  -- JSON crudo completo
+  {{ JSON.stringify(this.params.comp || {}) }}::jsonb
+)
+RETURNING id;
+
+
+

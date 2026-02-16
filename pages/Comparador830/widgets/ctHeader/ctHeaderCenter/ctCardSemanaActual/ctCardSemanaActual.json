@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "backgroundColor": "#eef2ff",
-  "borderColor": "#6366f1",
+  "borderColor": "#3b82f6",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
   "bottomRow": 19,
@@ -72,7 +72,7 @@
   "mobileRightColumn": 27,
   "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "originalBottomRow": 19,
+  "originalBottomRow": 18,
   "originalTopRow": 4,
   "parentColumnSpace": 19.62109375,
   "parentId": "7tub2tupex",
