@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 5,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,53 +11,42 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
-    },
-    {
-      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [
-    {
-      "key": "textColor"
-    }
-  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "0.875rem",
+  "fontSize": "1rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "zhs04z5e36",
+  "key": "1m76encz4k",
   "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 16,
-  "mobileLeftColumn": 36,
-  "mobileRightColumn": 52,
-  "mobileTopRow": 12,
+  "mobileBottomRow": 4,
+  "mobileLeftColumn": 21,
+  "mobileRightColumn": 37,
+  "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 13,
-  "originalTopRow": 8,
+  "originalBottomRow": 5,
+  "originalTopRow": 0,
   "overflow": "NONE",
-  "parentColumnSpace": 10.41778564453125,
-  "parentId": "v57ybgm875",
+  "parentColumnSpace": 1.76519775390625,
+  "parentId": "q9jdlj1ega",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 61,
+  "rightColumn": 60,
   "shouldTruncate": false,
-  "text": "{{ \nfpSemanaActual.files.length > 0 \n? \"📄 \" + fpSemanaActual.files[0].name \n: \"Ningún archivo seleccionado\"\n}}\n",
+  "text": "Partes que aumentar",
   "textAlign": "CENTER",
-  "textColor": "{{ fpSemanaAnterior.files.length > 0 ? \"#16a34a\" : \"#6b7280\" }}\n",
-  "topRow": 8,
+  "textColor": "#f4f4f5",
+  "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "nu3269biyu",
-  "widgetName": "Text7"
+  "widgetId": "730jyshgt3",
+  "widgetName": "Text12"
 }

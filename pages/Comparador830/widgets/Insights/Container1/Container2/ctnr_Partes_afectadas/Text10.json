@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 4,
+  "bottomRow": 5,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -11,9 +11,6 @@
     },
     {
       "key": "borderRadius"
-    },
-    {
-      "key": "text"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
@@ -23,33 +20,33 @@
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "fqd15n6klf",
-  "leftColumn": 4,
+  "key": "1m76encz4k",
+  "leftColumn": 7,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
   "mobileBottomRow": 4,
-  "mobileLeftColumn": 4,
-  "mobileRightColumn": 20,
+  "mobileLeftColumn": 18,
+  "mobileRightColumn": 34,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 4,
+  "originalBottomRow": 5,
   "originalTopRow": 0,
   "overflow": "NONE",
-  "parentColumnSpace": 19.30859375,
-  "parentId": "1l092s1ada",
+  "parentColumnSpace": 3.249267578125,
+  "parentId": "31j0hxbuuq",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 23,
+  "rightColumn": 57,
   "shouldTruncate": false,
-  "text": "Cambios esta semana {{ qProductionDashboard.data.length }}\n",
-  "textAlign": "LEFT",
-  "textColor": "#231F20",
+  "text": "Partes afectadas",
+  "textAlign": "CENTER",
+  "textColor": "#f4f4f5",
   "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "ick8txyrep",
-  "widgetName": "Text9"
+  "widgetId": "jn0z4sqmzd",
+  "widgetName": "Text10"
 }

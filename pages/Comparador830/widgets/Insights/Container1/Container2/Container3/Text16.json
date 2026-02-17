@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 9,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -14,50 +14,42 @@
     },
     {
       "key": "text"
-    },
-    {
-      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [
-    {
-      "key": "textColor"
-    }
-  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "0.875rem",
+  "fontSize": "1rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "zhs04z5e36",
-  "leftColumn": 0,
+  "key": "ejibopkbz9",
+  "leftColumn": 17,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 16,
-  "mobileLeftColumn": 36,
-  "mobileRightColumn": 52,
-  "mobileTopRow": 12,
+  "mobileBottomRow": 9,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 5,
   "needsErrorInfo": false,
-  "originalBottomRow": 13,
-  "originalTopRow": 8,
+  "originalBottomRow": 9,
+  "originalTopRow": 4,
   "overflow": "NONE",
-  "parentColumnSpace": 10.41778564453125,
-  "parentId": "v57ybgm875",
+  "parentColumnSpace": 6.81103515625,
+  "parentId": "otz388n64t",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 61,
+  "rightColumn": 50,
   "shouldTruncate": false,
-  "text": "{{ \nfpSemanaActual.files.length > 0 \n? \"📄 \" + fpSemanaActual.files[0].name \n: \"Ningún archivo seleccionado\"\n}}\n",
+  "text": "{{ Number(qWeekKpis.data?.[0]?.total_increase_qty ?? 0).toLocaleString() }}\n",
   "textAlign": "CENTER",
-  "textColor": "{{ fpSemanaAnterior.files.length > 0 ? \"#16a34a\" : \"#6b7280\" }}\n",
-  "topRow": 8,
+  "textColor": "#f4f4f5",
+  "topRow": 5,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "nu3269biyu",
-  "widgetName": "Text7"
+  "widgetId": "vp04x1qvrb",
+  "widgetName": "Text16"
 }

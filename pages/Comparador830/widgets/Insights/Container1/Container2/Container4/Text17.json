@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 12,
+  "bottomRow": 5,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -13,51 +13,43 @@
       "key": "borderRadius"
     },
     {
-      "key": "text"
-    },
-    {
       "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
-  "dynamicPropertyPathList": [
-    {
-      "key": "textColor"
-    }
-  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
-  "fontSize": "0.875rem",
+  "fontSize": "1rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "zhs04z5e36",
-  "leftColumn": 0,
+  "key": "ejibopkbz9",
+  "leftColumn": 3,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 16,
-  "mobileLeftColumn": 36,
-  "mobileRightColumn": 52,
-  "mobileTopRow": 12,
+  "mobileBottomRow": 5,
+  "mobileLeftColumn": 30,
+  "mobileRightColumn": 46,
+  "mobileTopRow": 1,
   "needsErrorInfo": false,
-  "originalBottomRow": 13,
-  "originalTopRow": 8,
+  "originalBottomRow": 5,
+  "originalTopRow": 0,
   "overflow": "NONE",
-  "parentColumnSpace": 10.41778564453125,
-  "parentId": "v57ybgm875",
+  "parentColumnSpace": 1.4683837890625,
+  "parentId": "ez38fgk2k3",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 61,
+  "rightColumn": 50,
   "shouldTruncate": false,
-  "text": "{{ \nfpSemanaActual.files.length > 0 \n? \"📄 \" + fpSemanaActual.files[0].name \n: \"Ningún archivo seleccionado\"\n}}\n",
+  "text": "Total a reducir",
   "textAlign": "CENTER",
-  "textColor": "{{ fpSemanaAnterior.files.length > 0 ? \"#16a34a\" : \"#6b7280\" }}\n",
-  "topRow": 8,
+  "textColor": "{{appsmith.theme.colors.backgroundColor}}",
+  "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "nu3269biyu",
-  "widgetName": "Text7"
+  "widgetId": "mvqr6py886",
+  "widgetName": "Text17"
 }

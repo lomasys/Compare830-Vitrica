@@ -1,0 +1,33 @@
+WITH base AS (
+  SELECT
+    d.part_number,
+    d.diff_value
+  FROM file_compare_runs r
+  JOIN file_compare_diffs d ON d.run_id = r.id
+  WHERE r.year_week = {{ select_week.selectedOptionValue || Select1.selectedValue || moment().format("GGGG-[W]WW") }}
+)
+SELECT
+  -- 1) Total de cambios (renglones)
+  COUNT(*)::int AS changes_rows,
+
+  -- 2) Part numbers únicos afectados
+  COUNT(DISTINCT part_number)::int AS parts_affected,
+
+  -- 3) Partes que aumentar (únicas con diff > 0)
+  COUNT(DISTINCT CASE WHEN diff_value > 0 THEN part_number END)::int AS parts_increase,
+
+  -- 4) Partes que reducir (únicas con diff < 0)
+  COUNT(DISTINCT CASE WHEN diff_value < 0 THEN part_number END)::int AS parts_decrease,
+
+  -- 5) Total a producir (suma de positivos)
+  COALESCE(SUM(CASE WHEN diff_value > 0 THEN diff_value ELSE 0 END), 0)::numeric AS total_increase_qty,
+
+  -- 6) Total a reducir (suma de abs(negativos))
+  COALESCE(SUM(CASE WHEN diff_value < 0 THEN ABS(diff_value) ELSE 0 END), 0)::numeric AS total_decrease_qty,
+
+  -- 7) Mayor aumento (max positivo)
+  COALESCE(MAX(CASE WHEN diff_value > 0 THEN diff_value END), 0)::numeric AS max_increase,
+
+  -- 8) Mayor reducción (max abs negativo)
+  COALESCE(MAX(CASE WHEN diff_value < 0 THEN ABS(diff_value) END), 0)::numeric AS max_decrease
+FROM base;
