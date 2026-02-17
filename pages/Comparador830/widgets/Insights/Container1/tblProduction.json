@@ -4,7 +4,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "1",
-  "bottomRow": 56,
+  "bottomRow": 55,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "cachedTableData": {},
   "canFreezeColumn": true,
@@ -35,9 +35,10 @@
     "Semana_archivo",
     "Total_producir",
     "Total_reducir",
-    "Partes_afectadas"
+    "Partes_afectadas",
+    "customColumn1"
   ],
-  "columnUpdatedAt": 1771357364064,
+  "columnUpdatedAt": 1771365010737,
   "columnWidthMap": {
     "part_number": 283,
     "row_payload": 856.9999999999999
@@ -74,11 +75,26 @@
     },
     {
       "key": "primaryColumns.Partes_afectadas.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.computedValue"
+    },
+    {
+      "key": "primaryColumns.customColumn1.textColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.cellBackground"
     }
   ],
   "dynamicPropertyPathList": [
     {
       "key": "tableData"
+    },
+    {
+      "key": "primaryColumns.customColumn1.textColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.cellBackground"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -96,25 +112,26 @@
   "isVisibleSearch": true,
   "key": "o9p4octqke",
   "label": "Data",
-  "leftColumn": 0,
+  "leftColumn": 12,
   "minWidth": 450,
   "mobileBottomRow": 56,
   "mobileLeftColumn": 14,
   "mobileRightColumn": 48,
   "mobileTopRow": 28,
   "needsErrorInfo": false,
-  "originalBottomRow": 56,
-  "originalTopRow": 28,
+  "originalBottomRow": 55,
+  "originalTopRow": 27,
   "parentColumnSpace": 19.185546875,
   "parentId": "1l092s1ada",
   "parentRowSpace": 10,
+  "primaryColumnId": "Semana_archivo",
   "primaryColumns": {
     "Partes_afectadas": {
       "alias": "Partes afectadas",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Partes afectadas\"])) : Partes afectadas })()}}",
+      "computedValue": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Partes afectadas\"])) : currentRow[\"Partes afectadas\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -145,7 +162,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Semana archivo\"])) : Semana archivo })()}}",
+      "computedValue": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Semana archivo\"])) : currentRow[\"Semana archivo\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -176,7 +193,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Total producir\"])) : Total producir })()}}",
+      "computedValue": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Total producir\"])) : currentRow[\"Total producir\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -207,7 +224,7 @@
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "columnType": "number",
-      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Total reducir\"])) : Total reducir })()}}",
+      "computedValue": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"Total reducir\"])) : currentRow[\"Total reducir\"] })()}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -232,15 +249,50 @@
       "validation": {},
       "verticalAlignment": "CENTER",
       "width": 150
+    },
+    "customColumn1": {
+      "alias": "Impacto",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "buttonStyle": "rgb(3, 179, 101)",
+      "cellBackground": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  if (pct >= 95) return \"#f3e8ff\";   // morado claro\n  if (pct >= 75) return \"#eff6ff\";   // azul claro\n  if (pct >= 50) return \"#ecfdf5\";   // verde claro\n  if (pct >= 30) return \"#fffbeb\";   // amarillo claro\n  return \"transparent\";\n})()\n)) : \n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  if (pct >= 95) return \"#f3e8ff\";   // morado claro\n  if (pct >= 75) return \"#eff6ff\";   // azul claro\n  if (pct >= 50) return \"#ecfdf5\";   // verde claro\n  if (pct >= 30) return \"#fffbeb\";   // amarillo claro\n  return \"transparent\";\n})()\n })()}}",
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  return pct + \"%\";\n})()\n)) : \n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  return pct + \"%\";\n})()\n })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "customColumn1",
+      "index": 4,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Impacto",
+      "labelColor": "#FFFFFF",
+      "notation": "standard",
+      "originalId": "customColumn1",
+      "sticky": "",
+      "textColor": "{{(() => { const tableData = tblProduction.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (\n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  if (pct >= 95) return \"#7c3aed\";   // morado premium\n  if (pct >= 75) return \"#2563eb\";   // azul fuerte\n  if (pct >= 50) return \"#16a34a\";   // verde\n  if (pct >= 30) return \"#f59e0b\";   // ámbar\n  return \"#6b7280\";                  // gris neutro\n})()\n)) : \n(() => {\n  const rows = tblProduction.tableData || [];\n\n  const maxValue = Math.max(\n    ...rows.map(r => Number(r[\"Total producir\"] ?? 0)),\n    1\n  );\n\n  const value = Number(currentRow[\"Total producir\"] ?? 0);\n  const pct = Math.round((value / maxValue) * 100);\n\n  if (pct >= 95) return \"#7c3aed\";   // morado premium\n  if (pct >= 75) return \"#2563eb\";   // azul fuerte\n  if (pct >= 50) return \"#16a34a\";   // verde\n  if (pct >= 30) return \"#f59e0b\";   // ámbar\n  return \"#6b7280\";                  // gris neutro\n})()\n })()}}",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
     }
   },
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 64,
+  "rightColumn": 56,
   "searchKey": "",
   "tableData": "{{qSummarizeWeek.data}}",
   "textSize": "0.875rem",
-  "topRow": 28,
+  "topRow": 27,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,

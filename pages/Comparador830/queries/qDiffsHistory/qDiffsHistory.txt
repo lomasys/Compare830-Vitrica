@@ -1,0 +1,11 @@
+SELECT
+  d.file_week      AS semana,
+  d.change_type    AS tipo,
+  d.part_number    AS numero_parte,
+  d.prev_value     AS valor_anterior,
+  d.curr_value     AS valor_actual,
+  d.diff_value     AS diferencia
+FROM file_compare_diffs d
+JOIN file_compare_runs r ON r.id = d.run_id
+WHERE r.year_week = {{ select_week_history.selectedOptionValue }}::text
+ORDER BY ABS(d.diff_value) DESC, d.part_number ASC;

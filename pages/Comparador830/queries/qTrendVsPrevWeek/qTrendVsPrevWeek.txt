@@ -1,0 +1,50 @@
+WITH params AS (
+  SELECT
+    {{ select_week_a.selectedOptionValue }}::text AS week_a,
+    {{ select_week_b.selectedOptionValue }}::text AS week_b
+),
+agg AS (
+  SELECT
+    r.year_week AS week,
+    COALESCE(SUM(CASE WHEN d.diff_value > 0 THEN d.diff_value END), 0) AS total_produce,
+    COALESCE(SUM(CASE WHEN d.diff_value < 0 THEN ABS(d.diff_value) END), 0) AS total_reduce,
+    COUNT(DISTINCT d.part_number) AS parts_affected
+  FROM file_compare_runs r
+  JOIN file_compare_diffs d ON d.run_id = r.id
+  WHERE r.year_week IN ((SELECT week_a FROM params), (SELECT week_b FROM params))
+  GROUP BY r.year_week
+),
+two AS (
+  SELECT
+    p.week_a,
+    p.week_b,
+    COALESCE(a.total_produce,0) AS a_total_produce,
+    COALESCE(a.total_reduce,0)  AS a_total_reduce,
+    COALESCE(a.parts_affected,0) AS a_parts_affected,
+    COALESCE(b.total_produce,0) AS b_total_produce,
+    COALESCE(b.total_reduce,0)  AS b_total_reduce,
+    COALESCE(b.parts_affected,0) AS b_parts_affected
+  FROM params p
+  LEFT JOIN agg a ON a.week = p.week_a
+  LEFT JOIN agg b ON b.week = p.week_b
+)
+SELECT
+  metric,
+  week_label,
+  value
+FROM (
+  SELECT 'total_produce'  AS metric, (SELECT week_a FROM two) AS week_label, (SELECT a_total_produce FROM two)  AS value
+  UNION ALL
+  SELECT 'total_produce', (SELECT week_b FROM two), (SELECT b_total_produce FROM two)
+
+  UNION ALL
+  SELECT 'total_reduce',  (SELECT week_a FROM two), (SELECT a_total_reduce FROM two)
+  UNION ALL
+  SELECT 'total_reduce',  (SELECT week_b FROM two), (SELECT b_total_reduce FROM two)
+
+  UNION ALL
+  SELECT 'parts_affected',(SELECT week_a FROM two), (SELECT a_parts_affected FROM two)
+  UNION ALL
+  SELECT 'parts_affected',(SELECT week_b FROM two), (SELECT b_parts_affected FROM two)
+) x
+ORDER BY metric, week_label;

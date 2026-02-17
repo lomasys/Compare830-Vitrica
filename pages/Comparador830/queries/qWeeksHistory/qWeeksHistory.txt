@@ -1,0 +1,4 @@
+SELECT DISTINCT year_week
+FROM file_compare_runs
+WHERE year_week IS NOT NULL
+ORDER BY year_week DESC;

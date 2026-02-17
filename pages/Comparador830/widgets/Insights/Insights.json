@@ -5,7 +5,7 @@
   "borderColor": "#E0DEDE",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": 1,
-  "bottomRow": 64,
+  "bottomRow": 63,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "children": [
     {
@@ -56,7 +56,7 @@
     },
     {
       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-      "bottomRow": 600,
+      "bottomRow": 590,
       "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
       "canExtend": true,
       "detachFromLayout": true,
@@ -99,6 +99,96 @@
       "version": 1,
       "widgetId": "jdc9mvqm3g",
       "widgetName": "Canvas7"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 690,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "6gds75btyz",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 640,
+      "minWidth": 450,
+      "mobileBottomRow": 641,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1275.75,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "4ctj9ks680",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1275.75,
+      "tabId": "tab287lesb1tx",
+      "tabName": "Tendencias",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "rwujms63sk",
+      "widgetName": "Canvas15"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 590,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "vnlzx91enj",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 1170,
+      "minWidth": 450,
+      "mobileBottomRow": 1171,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1296,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "4ctj9ks680",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1296,
+      "tabId": "tabbqc5cldy9b",
+      "tabName": "Histórico",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "hal9xiggfq",
+      "widgetName": "Canvas16"
     }
   ],
   "defaultTab": "Compare 830",
@@ -120,7 +210,7 @@
   "isLoading": false,
   "isVisible": true,
   "key": "p2e5tdq20g",
-  "leftColumn": 1,
+  "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 15,
   "minWidth": 450,
@@ -129,7 +219,7 @@
   "mobileRightColumn": 25,
   "mobileTopRow": 0,
   "needsErrorInfo": false,
-  "originalBottomRow": 64,
+  "originalBottomRow": 63,
   "originalTopRow": 0,
   "parentColumnSpace": 20.25,
   "parentId": "0",
@@ -155,6 +245,20 @@
       "label": "Insights",
       "positioning": "vertical",
       "widgetId": "jdc9mvqm3g"
+    },
+    "tab287lesb1tx": {
+      "id": "tab287lesb1tx",
+      "index": 2,
+      "isVisible": true,
+      "label": "Tendencias",
+      "widgetId": "rwujms63sk"
+    },
+    "tabbqc5cldy9b": {
+      "id": "tabbqc5cldy9b",
+      "index": 3,
+      "isVisible": true,
+      "label": "Histórico",
+      "widgetId": "hal9xiggfq"
     }
   },
   "topRow": 0,

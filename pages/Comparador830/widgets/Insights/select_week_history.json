@@ -2,9 +2,9 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 26,
+  "bottomRow": 7,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  qWeeks.data?.[0]?.year_week ))(select_week.options, select_week.serverSideFiltering) }}",
+  "defaultOptionValue": "GREEN",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -14,9 +14,6 @@
     },
     {
       "key": "sourceData"
-    },
-    {
-      "key": "defaultOptionValue"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -25,48 +22,41 @@
       "key": "sourceData"
     }
   ],
-  "dynamicTriggerPathList": [
-    {
-      "key": "onOptionChange"
-    }
-  ],
+  "dynamicTriggerPathList": [],
   "isDisabled": false,
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,
   "isVisible": true,
-  "key": "xbvgjd5tob",
+  "key": "igqmewgega",
   "labelAlignment": "left",
   "labelPosition": "Top",
-  "labelText": "Selecciona la semana del año",
+  "labelText": "Selecciona la Semana",
   "labelTextSize": "0.875rem",
   "labelWidth": 5,
-  "leftColumn": 12,
+  "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 17,
+  "mobileBottomRow": 11,
   "mobileLeftColumn": 4,
   "mobileRightColumn": 24,
-  "mobileTopRow": 10,
+  "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "onOptionChange": "{{}}",
   "optionLabel": "year_week",
   "optionValue": "year_week",
-  "originalBottomRow": 26,
-  "originalTopRow": 19,
-  "parentColumnSpace": 19.30859375,
-  "parentId": "1l092s1ada",
+  "parentColumnSpace": 19.8125,
+  "parentId": "hal9xiggfq",
   "parentRowSpace": 10,
   "placeholderText": "Select option",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 28,
+  "rightColumn": 13,
   "serverSideFiltering": false,
-  "sourceData": "{{ qWeeks.data }}",
-  "topRow": 19,
+  "sourceData": "{{qWeeksHistory.data}}",
+  "topRow": 0,
   "type": "SELECT_WIDGET",
   "version": 1,
-  "widgetId": "yjedyx5xda",
-  "widgetName": "select_week"
+  "widgetId": "sng0ozjwyc",
+  "widgetName": "select_week_history"
 }
