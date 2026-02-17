@@ -1,4 +1,4 @@
-insert into file_compare_diffs (
+INSERT INTO file_compare_diffs (
   run_id,
   period_key,
   year,
@@ -12,7 +12,7 @@ insert into file_compare_diffs (
   diff_value,
   row_payload
 )
-select
+SELECT
   {{ this.params.run_id }}::uuid,
   {{ this.params.period_key || moment().format("YYYY-MM") }},
   {{ this.params.year || moment().year() }},
@@ -25,13 +25,12 @@ select
   nullif(d->>'valorActual','')::numeric,
   nullif(d->>'diferencia','')::numeric,
   d
-from jsonb_array_elements(
+FROM jsonb_array_elements(
   {{ JSON.stringify(this.params.diferencias || []) }}::jsonb
 ) d
-where coalesce(d->>'numeroParte','') <> ''  -- opcional: evita rows sin parte
-returning id, run_id, part_number, change_type;
-
-
+WHERE coalesce(d->>'numeroParte','') <> ''  -- evita rows sin parte
+ON CONFLICT DO NOTHING
+RETURNING id, run_id, part_number, change_type;
 
 
 

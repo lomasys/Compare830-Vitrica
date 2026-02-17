@@ -1,52 +1,87 @@
-INSERT INTO file_compare_runs (
-  created_by_email,
-  created_by_name,
-  tool_name,
-  compare_type,
-  period_key,
-  year,
-  month,
-  iso_week,
-  year_week,
-  prev_filename,
-  curr_filename,
-  has_differences,
-  differences_count,
-  total_prev,
-  total_curr,
-  total_variation,
-  raw_summary
+WITH payload AS (
+  SELECT
+    {{ appsmith.user.email }}::text            AS created_by_email,
+    {{ appsmith.user.name }}::text             AS created_by_name,
+    'Comparador 830'::text                     AS tool_name,
+    '830'::text                                AS compare_type,
+
+    {{ moment().format("YYYY-MM") }}::text     AS period_key,
+    {{ moment().year() }}::int                 AS year,
+    {{ moment().month() + 1 }}::int            AS month,
+    {{ moment().isoWeek() }}::int              AS iso_week,
+    {{ moment().format("GGGG-[W]WW") }}::text  AS year_week,
+
+    {{ this.params.comp?.prev_filename || this.params.comp?.prevFilename || null }}::text AS prev_filename,
+    {{ this.params.comp?.curr_filename || this.params.comp?.currFilename || null }}::text AS curr_filename,
+
+    {{ (this.params.comp?.diferencias_count ?? 0) > 0 }}::boolean AS has_differences,
+    {{ (this.params.comp?.diferencias_count ?? 0) }}::int         AS differences_count,
+
+    {{ Number(this.params.comp?.total_prev ?? this.params.comp?.total_anterior ?? 0) }}::numeric AS total_prev,
+    {{ Number(this.params.comp?.total_curr ?? this.params.comp?.total_actual ?? 0) }}::numeric AS total_curr,
+    {{ Number(this.params.comp?.total_variation ?? this.params.comp?.variacion_total ?? 0) }}::numeric AS total_variation,
+
+    {{ JSON.stringify(this.params.comp || {}) }}::jsonb AS raw_summary
+),
+hashed AS (
+  SELECT
+    *,
+    md5(raw_summary::text) AS compare_hash
+  FROM payload
+),
+ins AS (
+  INSERT INTO file_compare_runs (
+    created_by_email,
+    created_by_name,
+    tool_name,
+    compare_type,
+    period_key,
+    year,
+    month,
+    iso_week,
+    year_week,
+    prev_filename,
+    curr_filename,
+    has_differences,
+    differences_count,
+    total_prev,
+    total_curr,
+    total_variation,
+    raw_summary,
+    compare_hash
+  )
+  SELECT
+    created_by_email,
+    created_by_name,
+    tool_name,
+    compare_type,
+    period_key,
+    year,
+    month,
+    iso_week,
+    year_week,
+    prev_filename,
+    curr_filename,
+    has_differences,
+    differences_count,
+    total_prev,
+    total_curr,
+    total_variation,
+    raw_summary,
+    compare_hash
+  FROM hashed
+  ON CONFLICT (year_week, compare_hash) DO NOTHING
+  RETURNING id
 )
-VALUES (
-  {{ appsmith.user.email }},
-  {{ appsmith.user.name }},
-  'Comparador 830',
-  '830',
-
-  -- Periodo (cuando se corrió el comparativo)
-  {{ moment().format("YYYY-MM") }},
-  {{ moment().year() }},
-  {{ moment().month() + 1 }},
-  {{ moment().isoWeek() }},
-  {{ moment().format("GGGG-[W]WW") }},
-
-  -- nombres de archivo (si tu comp los trae)
-  {{ this.params.comp?.prev_filename || this.params.comp?.prevFilename || null }},
-  {{ this.params.comp?.curr_filename || this.params.comp?.currFilename || null }},
-
-  -- resumen de diferencias
-  {{ (Number(this.params.comp?.diferencias_count ?? this.params.comp?.diferenciasCount ?? 0)) > 0 }},
-  {{ Number(this.params.comp?.diferencias_count ?? this.params.comp?.diferenciasCount ?? 0) }},
-
-  -- totales (si tu comp los trae)
-  {{ Number(this.params.comp?.total_prev ?? this.params.comp?.total_anterior ?? this.params.comp?.totalAnterior ?? 0) }},
-  {{ Number(this.params.comp?.total_curr ?? this.params.comp?.total_actual ?? this.params.comp?.totalActual ?? 0) }},
-  {{ Number(this.params.comp?.total_variation ?? this.params.comp?.variacion_total ?? this.params.comp?.variacionTotal ?? 0) }},
-
-  -- JSON crudo completo
-  {{ JSON.stringify(this.params.comp || {}) }}::jsonb
-)
-RETURNING id;
+SELECT id
+FROM ins
+UNION ALL
+SELECT r.id
+FROM file_compare_runs r
+JOIN hashed h
+  ON r.year_week = h.year_week
+ AND r.compare_hash = h.compare_hash
+LIMIT 1;
 
 
 
