@@ -1,0 +1,23 @@
+SELECT
+  r.year_week,
+  r.created_at,
+  r.created_by_name,
+  d.part_number,
+  d.prev_value,
+  d.curr_value,
+  d.diff_value,
+
+  CASE
+    WHEN d.diff_value > 0 THEN 'PRODUCIR MÁS'
+    WHEN d.diff_value < 0 THEN 'PRODUCIR MENOS'
+    ELSE 'SIN CAMBIO'
+  END AS action,
+
+  ABS(d.diff_value) AS priority
+
+FROM file_compare_runs r
+JOIN file_compare_diffs d ON d.run_id = r.id
+
+WHERE r.year_week = {{ select_week.selectedOptionValue }}
+
+ORDER BY priority DESC, r.created_at DESC;
