@@ -1,0 +1,21 @@
+SELECT
+  d.file_week AS "Semana archivo",
+
+  COALESCE(SUM(CASE WHEN d.diff_value > 0 THEN d.diff_value ELSE 0 END), 0) AS "Total producir",
+
+  COALESCE(SUM(CASE WHEN d.diff_value < 0 THEN ABS(d.diff_value) ELSE 0 END), 0) AS "Total reducir",
+
+  COUNT(DISTINCT d.part_number) AS "Partes afectadas"
+
+FROM file_compare_runs r
+JOIN file_compare_diffs d ON d.run_id = r.id
+
+WHERE r.year_week = {{ select_week.selectedOptionValue }}
+
+
+GROUP BY d.file_week
+ORDER BY d.file_week;
+
+
+
+

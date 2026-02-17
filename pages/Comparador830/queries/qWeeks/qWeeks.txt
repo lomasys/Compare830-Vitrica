@@ -1,4 +1,4 @@
-SELECT DISTINCT
-  year_week
-FROM file_compare_runs
-ORDER BY year_week DESC;
+SELECT DISTINCT r.year_week
+FROM file_compare_runs r
+WHERE r.year_week IS NOT NULL
+ORDER BY r.year_week DESC;

@@ -29,7 +29,7 @@
     ],
     "name": "qProductionDashboard",
     "pageId": "Comparador830",
-    "runBehaviour": "AUTOMATIC",
+    "runBehaviour": "MANUAL",
     "userSetOnLoad": false
   }
 }
