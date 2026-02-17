@@ -43,7 +43,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 39,
   "shouldTruncate": false,
-  "text": "{{ qWeekKpis.data?.[0]?.parts_decrease ?? 0 }}\n",
+  "text": "{{ qWeekKpis.data[0]?.parts_decrease || 0 }}\n\n",
   "textAlign": "CENTER",
   "textColor": "#f4f4f5",
   "topRow": 5,

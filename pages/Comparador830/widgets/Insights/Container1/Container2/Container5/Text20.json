@@ -43,7 +43,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 46,
   "shouldTruncate": false,
-  "text": "{{ Number(qWeekKpis.data?.[0]?.max_increase ?? 0).toLocaleString() }}\n",
+  "text": "{{ qWeekKpis.data[0]?.max_increase || 0 }}\n\n",
   "textAlign": "CENTER",
   "textColor": "#e0dede",
   "topRow": 5,

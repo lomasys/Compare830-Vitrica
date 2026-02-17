@@ -46,7 +46,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 44,
   "shouldTruncate": false,
-  "text": "{{ Number(qWeekKpis.data?.[0]?.total_decrease_qty ?? 0).toLocaleString() }}\n",
+  "text": "{{ qWeekKpis.data[0]?.total_reduce || 0 }}\n\n",
   "textAlign": "CENTER",
   "textColor": "{{appsmith.theme.colors.backgroundColor}}",
   "topRow": 5,

@@ -46,7 +46,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 38,
   "shouldTruncate": false,
-  "text": "{{ qSummarizeWeek.data.data?.[0]?.parts_affected ?? 0 }}\n",
+  "text": "{{ qWeekKpis.data[0]?.parts_affected || 0 }}\n\n",
   "textAlign": "CENTER",
   "textColor": "{{appsmith.theme.colors.backgroundColor}}",
   "topRow": 5,

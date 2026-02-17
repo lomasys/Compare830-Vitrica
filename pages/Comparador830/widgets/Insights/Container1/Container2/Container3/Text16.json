@@ -43,7 +43,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 50,
   "shouldTruncate": false,
-  "text": "{{ Number(qWeekKpis.data?.[0]?.total_increase_qty ?? 0).toLocaleString() }}\n",
+  "text": "{{ qWeekKpis.data[0]?.total_produce || 0 }}\n\n",
   "textAlign": "CENTER",
   "textColor": "#f4f4f5",
   "topRow": 5,
