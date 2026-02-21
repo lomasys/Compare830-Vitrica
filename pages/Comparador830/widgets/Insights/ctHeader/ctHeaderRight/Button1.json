@@ -1,0 +1,55 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 11,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "75fqsrc5u2",
+  "leftColumn": 4,
+  "minWidth": 120,
+  "mobileBottomRow": 21,
+  "mobileLeftColumn": 12,
+  "mobileRightColumn": 28,
+  "mobileTopRow": 17,
+  "needsErrorInfo": false,
+  "onClick": "{{(() => {\n  // 1. Obtener el HTML desde el iframe\n  const html = Iframe1.srcDoc || \"<p>Sin contenido para imprimir</p>\";\n\n  // 2. Crear página HTML completa lista para impresión\n  const page = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\" />\n  <title>Resultado comparación 830</title>\n\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      padding: 24px;\n      color: #111;\n    }\n\n    h1 {\n      font-size: 20px;\n      margin-bottom: 10px;\n    }\n\n    .header {\n      display: flex;\n      align-items: center;\n      margin-bottom: 20px;\n    }\n\n    .logo {\n      font-weight: bold;\n      font-size: 18px;\n      margin-right: 10px;\n    }\n\n    .date {\n      font-size: 12px;\n      color: #666;\n    }\n\n    table {\n      border-collapse: collapse;\n      width: 100%;\n      font-size: 12px;\n    }\n\n    th, td {\n      border: 1px solid #ccc;\n      padding: 6px;\n      text-align: left;\n    }\n\n    th {\n      background: #f4f4f4;\n      font-weight: bold;\n    }\n\n    @media print {\n      body {\n        padding: 0;\n      }\n    }\n\n  </style>\n\n</head>\n\n<body>\n\n  <div class=\"header\">\n    <div class=\"logo\">VITRICA — Comparador 830</div>\n    <div class=\"date\">\n      Generado: ${new Date().toLocaleString()}\n    </div>\n  </div>\n\n  ${html}\n\n  <script>\n    window.onload = function() {\n      window.print();\n    };\n  </script>\n\n</body>\n</html>\n`;\n\n  // 3. Descargar el archivo HTML\n  download(\n    page,\n    \"resultado_comparacion_830.html\",\n    \"text/html\"\n  );\n\n})();}}",
+  "parentColumnSpace": 3.0070037841796875,
+  "parentId": "l0ultz3mka",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 51,
+  "text": "\"Imprimir\"",
+  "topRow": 7,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "88qc16p7w9",
+  "widgetName": "Button1"
+}

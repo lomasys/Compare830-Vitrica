@@ -1,5 +1,5 @@
 {
-  "allowedFileTypes": "[\n  \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\"\n]\n",
+  "allowedFileTypes": "[\n  \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\",\n  \"application/vnd.ms-excel\"\n]\n",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 8,
